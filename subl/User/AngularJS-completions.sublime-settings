@@ -1,0 +1,5 @@
+{
+    "extended_attribute_list":[
+        ["my-directive\tMy Directives", "my-directive=\"${1:string}\"$0"],
+    ]
+}

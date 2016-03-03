@@ -1,0 +1,20 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Git",
+		"HTML-CSS-JS Prettify",
+		"JsFormat",
+		"JSHint",
+		"Material Theme",
+		"Package Control",
+		"SideBarEnhancements",
+		"SublimeCodeIntel",
+		"Theme - Glacier",
+		"Theme - Soda",
+		"Theme - Tech49"
+	]
+}

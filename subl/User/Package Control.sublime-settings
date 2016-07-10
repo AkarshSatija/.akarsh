@@ -5,7 +5,9 @@
 	],
 	"installed_packages":
 	[
+		"EditorConfig",
 		"Git",
+		"Github Tools",
 		"HTML-CSS-JS Prettify",
 		"JsFormat",
 		"JSHint",

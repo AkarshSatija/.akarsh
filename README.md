@@ -1,2 +1,6 @@
-# ENV-configs
-My systems' ENV configs/dotfiles
+# .akarsh
+My dotfiles repository
+
+```
+git clone git@github.com:AkarshSatija/.akarsh.git ~/.akarsh
+```

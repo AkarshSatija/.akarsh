@@ -1,3 +1,6 @@
+#### ssh alias
+alias sshme="ssh -i ~/.ssh/id_rsa -l akarsh.s "
+
 getIP(){
     CACHE_FILE=~/.akarsh/.host-cache
     
@@ -28,6 +31,3 @@ s3h() {
     echo "sshme $IP"
     sshme $IP
 }
-
-#### ssh alias
-alias sshme="ssh -i ~/.ssh/id_rsa -l akarsh.s "

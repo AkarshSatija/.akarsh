@@ -5,7 +5,7 @@ tell application "System Preferences"
 	tell application "System Events"
 		tell process "System Preferences"
 			tell window "Network"
-				select row 4 of table 1 of scroll area 1
+				select row 6 of table 1 of scroll area 1
 				click checkbox 1 of group 1
 				delay 0.5
 				click checkbox 1 of group 1

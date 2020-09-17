@@ -1,0 +1,1 @@
+alias tinit='ln -fs ~/.secrets/.secrets.tfvars ./terraform.tfvars && terraform init'

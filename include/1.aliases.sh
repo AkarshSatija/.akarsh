@@ -14,3 +14,4 @@ alias vpnfix="osascript $HOME/.akarsh/lib/fix_catalina_vpn.applescript"
 
 ##### Override zsh alias
 alias gst='echo \"********************************************************************* Dude!!! Stop Using gst ***************************************************************\"'
+alias totp='oathtool --totp --base32 "$(security find-generic-password -a lazy-connect -w 2>/dev/null | tr -d '\n')"'

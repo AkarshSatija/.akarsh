@@ -1,0 +1,306 @@
+diff --git i/chrome/Custom.css w/chrome/Custom.css
+deleted file mode 100644
+index cffc2da..0000000
+--- i/chrome/Custom.css
++++ /dev/null
+@@ -1 +0,0 @@
+-body#-webkit-web-inspector #main{background-color:#002b36!important}body#-webkit-web-inspector #main .panel.network,body#-webkit-web-inspector #main .panel.timeline,body#-webkit-web-inspector #main .panel.profiles,body#-webkit-web-inspector #main .panel.audits,body#-webkit-web-inspector #main .panel.extension{background-color:#fff!important}body#-webkit-web-inspector #console-messages a:hover,body#-webkit-web-inspector #console-messages .console-formatted-function,body#-webkit-web-inspector #console-messages .console-formatted-object{color:#93a1a1!important}body#-webkit-web-inspector #console-prompt,body#-webkit-web-inspector #console-messages a,body#-webkit-web-inspector #console-messages .console-message,body#-webkit-web-inspector #console-messages .console-group-messages .section .header .title{color:#839496!important}body#-webkit-web-inspector #console-messages .console-formatted-null,body#-webkit-web-inspector #console-messages .console-formatted-undefined{color:#657b83!important}body#-webkit-web-inspector #console-messages .auto-complete-text,body#-webkit-web-inspector #console-messages .editing .auto-complete-text{color:#586e75!important}body#-webkit-web-inspector #console-messages .console-message,body#-webkit-web-inspector .console-user-command{border-bottom:1px solid #586e75!important}body#-webkit-web-inspector #console-messages .console-user-command>.console-message-text{color:#2aa198!important}body#-webkit-web-inspector #console-messages .console-formatted-number{color:#d33682!important}body#-webkit-web-inspector #console-messages .console-formatted-string{color:#b58900!important}body#-webkit-web-inspector #console-messages .console-formatted-regexp{color:#cb4b16!important}body#-webkit-web-inspector #console-messages .section .properties .name,body#-webkit-web-inspector .event-properties .name{color:#268bd2!important;opacity:1!important}body#-webkit-web-inspector #console-messages .console-group-messages .section .header::before,body#-webkit-web-inspector #console-messages .properties-tree li.parent::before{content:url(chrome-devtools://devtools/Images/treeRightTriangleWhite.png)!important}body#-webkit-web-inspector #console-messages .console-group-messages .section.expanded .header::before,body#-webkit-web-inspector #console-messages .properties-tree li.parent.expanded::before{content:url(chrome-devtools://devtools/Images/treeDownTriangleWhite.png)!important}body#-webkit-web-inspector #console-messages .console-error-level .console-message-text .title{color:#dc322f!important}body#-webkit-web-inspector #console-messages .console-user-command::before{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OTMzNzdGNUZDMTA1MTFFMDgwRUZGQ0JCMjgzMzU0MTYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OTMzNzdGNjBDMTA1MTFFMDgwRUZGQ0JCMjgzMzU0MTYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5MzM3N0Y1REMxMDUxMUUwODBFRkZDQkIyODMzNTQxNiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5MzM3N0Y1RUMxMDUxMUUwODBFRkZDQkIyODMzNTQxNiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pia6udAAAAB5SURBVHjaYvz//z8DMYAFxli9ejWI6oByK5AVhYaGIhRCgQsQGwOxIFTxe5gEE5pCVyA+C8RpQLwbqgmrwvdQxauhis6AbMamEASUkEwCabyHTWE51BQlqBNMoDSKQhckX3dCFd3DCB4g2AP16VkoGwUwEhvgAAEGAAzQHBRSxqPRAAAAAElFTkSuQmCC)!important}body#-webkit-web-inspector #console-messages .outline-disclosure li.parent::before,body#-webkit-web-inspector .section .header::before,body#-webkit-web-inspector .properties-tree li.parent::before{content:url(chrome-devtools://devtools/Images/treeRightTriangleWhite.png)!important}body#-webkit-web-inspector .section.expanded .header::before,body#-webkit-web-inspector .properties-tree li.parent.expanded::before{content:url(chrome-devtools://devtools/Images/treeDownTriangleWhite.png)!important}body#-webkit-web-inspector #drawer{background-color:#fdf6e3!important}body#-webkit-web-inspector #drawer #console-messages a:hover,body#-webkit-web-inspector #drawer #console-messages .console-formatted-function,body#-webkit-web-inspector #drawer #console-messages .console-formatted-object{color:#586e75!important}body#-webkit-web-inspector #drawer #console-prompt,body#-webkit-web-inspector #drawer #console-messages a,body#-webkit-web-inspector #drawer #console-messages .console-message,body#-webkit-web-inspector #drawer #console-messages .console-group-messages .section .header .title{color:#657b83!important}body#-webkit-web-inspector #drawer #console-messages .console-formatted-null,body#-webkit-web-inspector #drawer #console-messages .console-formatted-undefined{color:#839496!important}body#-webkit-web-inspector #drawer #console-messages .auto-complete-text,body#-webkit-web-inspector #drawer #console-messages .editing .auto-complete-text{color:#93a1a1!important}body#-webkit-web-inspector #drawer #console-messages .console-message,body#-webkit-web-inspector #drawer .console-user-command{border-bottom:1px solid #586e75!important}body#-webkit-web-inspector #drawer #console-messages .console-message,body#-webkit-web-inspector #drawer .console-user-command{border-bottom:1px solid #93a1a1!important}body#-webkit-web-inspector #drawer #console-messages .console-group-messages .section .header::before,body#-webkit-web-inspector #drawer #console-messages .properties-tree li.parent::before{content:url(chrome-devtools://devtools/Images/treeRightTriangleBlack.png)!important}body#-webkit-web-inspector #drawer #console-messages .console-group-messages .section.expanded .header::before,body#-webkit-web-inspector #drawer #console-messages .properties-tree li.parent.expanded::before{content:url(chrome-devtools://devtools/Images/treeDownTriangleBlack.png)!important}body#-webkit-web-inspector #console-prompt::before{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MjRGNTc2MTZDMTA2MTFFMDgwRUZGQ0JCMjgzMzU0MTYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MjRGNTc2MTdDMTA2MTFFMDgwRUZGQ0JCMjgzMzU0MTYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5MzM3N0Y2MUMxMDUxMUUwODBFRkZDQkIyODMzNTQxNiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5MzM3N0Y2MkMxMDUxMUUwODBFRkZDQkIyODMzNTQxNiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Plf0eOsAAAB4SURBVHjaYvz//z8DMYAFxph+BqyhA8qtQFaUacKIUAgFLkBsDMSCUMXvYRJMaApdgfgsEKcB8W6oJqwK30MVr4YqOgPEodgUgoASkkkgjfewKSyHmqIEdYIJlEZR6ILk606oonsYwQMEe6A+PQtlowBGYgMcIMAAF2wcFPVNZx8AAAAASUVORK5CYII=)!important;color:#fdf6e3!important}body#-webkit-web-inspector .webkit-line-number{background-color:#073642!important;color:#586e75;font-size:11px!important}body#-webkit-web-inspector .webkit-line-content{color:#839496!important}body#-webkit-web-inspector .panel.scripts .navigator-tabbed-pane .navigator{background:#fdf6e3}body#-webkit-web-inspector .panel.scripts .outline-disclosure>ol{color:#586e75!important}body#-webkit-web-inspector .panel.scripts .outline-disclosure ol:focus li.selected,body#-webkit-web-inspector .panel.scripts .navigator:focus li.selected{color:#93a1a1!important}body#-webkit-web-inspector #storage-views .script-view,body#-webkit-web-inspector #network-views .script-view,body#-webkit-web-inspector #elements-content .highlight,body#-webkit-web-inspector #script-resource-views .script-view{color:#839496!important}body#-webkit-web-inspector #elements-content .parent::before{content:url(chrome-devtools://devtools/Images/treeRightTriangleWhite.png)!important;position:relative;z-index:999}body#-webkit-web-inspector #elements-content .parent.expanded::before{content:url(chrome-devtools://devtools/Images/treeDownTriangleWhite.png)!important}body#-webkit-web-inspector li.hovered:not(.selected) .selection{background-color:rgba(255,255,255,0.2)!important}body#-webkit-web-inspector .outline-disclosure li.selected .selection{background-color:#073642!important}body#-webkit-web-inspector .outline-disclosure ol:focus li.selected .selection{background-color:rgba(255,255,255,0.1)!important}body#-webkit-web-inspector .editing{background-color:#fdf6e3!important;outline-color:#93a1a1!important}body#-webkit-web-inspector .webkit-css-comment{color:#93a1a1!important}body#-webkit-web-inspector .webkit-line-content,body#-webkit-web-inspector .webkit-css-selector{color:#268bd2!important}body#-webkit-web-inspector .webkit-css-property{color:#fdf6e3!important}body#-webkit-web-inspector .webkit-css-keyword{color:#2aa198!important}body#-webkit-web-inspector .webkit-css-number{color:#dc322f!important}body#-webkit-web-inspector .webkit-css-at-rule{color:#268bd2!important}body#-webkit-web-inspector .webkit-css-string{color:#b58900!important}body#-webkit-web-inspector .webkit-css-url{color:#93a1a1!important}body#-webkit-web-inspector .webkit-css-color{color:#d33682!important}body#-webkit-web-inspector .webkit-css-string{color:#93a1a1!important}body#-webkit-web-inspector .webkit-css-keyword{color:#cb4b16!important}body#-webkit-web-inspector .webkit-javascript-ident{color:#fdf6e3!important}body#-webkit-web-inspector .webkit-javascript-keyword{color:#b58900!important}body#-webkit-web-inspector .webkit-javascript-comment{color:#93a1a1!important}body#-webkit-web-inspector .webkit-javascript-string{color:#b58900!important}body#-webkit-web-inspector .webkit-javascript-number{color:#d33682!important}body#-webkit-web-inspector .webkit-javascript-regexp{color:#dc322f!important}body#-webkit-web-inspector .webkit-html-external-link,body#-webkit-web-inspector .webkit-html-resource-link{color:#b58900!important;text-decoration:none!important}body#-webkit-web-inspector #elements-sidebar{background:#002b36!important}body#-webkit-web-inspector #elements-sidebar .styles-section.read-only,body#-webkit-web-inspector #elements-sidebar .styles-section.read-only .monospace{background:#002b36!important}body#-webkit-web-inspector #elements-sidebar .styles-section,body#-webkit-web-inspector #elements-sidebar .subtitle{color:#d33682!important}body#-webkit-web-inspector #elements-sidebar .styles-selector{color:#6c71c4!important}body#-webkit-web-inspector #elements-sidebar .webkit-css-property{color:#d33682!important}body#-webkit-web-inspector #elements-sidebar .properties .value{color:#2aa198!important}body#-webkit-web-inspector .webkit-html-external-link,body#-webkit-web-inspector .webkit-html-resource-link{color:#859900!important;text-decoration:none!important}body#-webkit-web-inspector .webkit-css-property,body#-webkit-web-inspector .webkit-css-at-rule,body#-webkit-web-inspector .console-formatted-string,body#-webkit-web-inspector .console-formatted-regexp{color:#b58900!important}body#-webkit-web-inspector .styles-section.read-only>*{background-color:#fdf6e3!important}body#-webkit-web-inspector .styles-section .properties .child-editing,body#-webkit-web-inspector .styles-section .title>div>span,body#-webkit-web-inspector .styles-section .styles-selector>div>span,body#-webkit-web-inspector .section .properties .name,body#-webkit-web-inspector .event-properties .name{color:#268bd2!important}body#-webkit-web-inspector .webkit-css-property+.value{color:#2aa198!important}body#-webkit-web-inspector .styles-section .properties .child-editing>span *,body#-webkit-web-inspector .console-formatted-object,body#-webkit-web-inspector .console-formatted-node{color:#b58900!important}body#-webkit-web-inspector .pane>.body .info,body#-webkit-web-inspector .placard .title{color:#93a1a1!important}body#-webkit-web-inspector .console-formatted-number{color:#dc322f!important}body#-webkit-web-inspector .styles-section .properties .enabled-button{margin:0 2px 0!important;left:-38px!important;width:14px!important}body#-webkit-web-inspector .properties-tree li.parent::before,body#-webkit-web-inspector .properties-tree li.parent.expanded::before{content:none!important;float:none!important}body#-webkit-web-inspector .styles-section.matched-styles .properties li.parent .expand-element{content:url(chrome-devtools://devtools/Images/treeRightTriangleWhite.png)!important}body#-webkit-web-inspector .styles-section.matched-styles .properties li.parent.expanded .expand-element{content:url(chrome-devtools://devtools/Images/treeDownTriangleWhite.png)!important}body#-webkit-web-inspector .suggest-box.generic-suggest{background-color:#fdf6e3!important}body#-webkit-web-inspector .suggest-box-content-item{color:#b58900!important;font-weight:normal!important}body#-webkit-web-inspector .suggest-box-content-item .prefix{color:#dc322f!important}body#-webkit-web-inspector .resource-view{color:#839496}body#-webkit-web-inspector .resource-view.image .infoList dt{color:#268bd2!important}body#-webkit-web-inspector .webkit-line-number,.webkit-line-gutter-backdrop .webkit-line-number,.webkit-line-gutter-backdrop+table .webkit-line-number,body#-webkit-web-inspector .webkit-line-content,.webkit-line-gutter-backdrop .webkit-line-content,.webkit-line-gutter-backdrop+table .webkit-line-content{background-color:#002b36!important}body#-webkit-web-inspector .monospace,.webkit-line-gutter-backdrop .monospace,.webkit-line-gutter-backdrop+table .monospace,body#-webkit-web-inspector .source-code,.webkit-line-gutter-backdrop .source-code,.webkit-line-gutter-backdrop+table .source-code,body#-webkit-web-inspector .webkit-line-number,.webkit-line-gutter-backdrop .webkit-line-number,.webkit-line-gutter-backdrop+table .webkit-line-number,body#-webkit-web-inspector .webkit-line-content,.webkit-line-gutter-backdrop .webkit-line-content,.webkit-line-gutter-backdrop+table .webkit-line-content,body#-webkit-web-inspector #elements-sidebar .child-editing,.webkit-line-gutter-backdrop #elements-sidebar .child-editing,.webkit-line-gutter-backdrop+table #elements-sidebar .child-editing{font-family:Inconsolata,monospace!important;font-size:12px!important;color:#839496!important}body#-webkit-web-inspector .webkit-html-comment,.webkit-line-gutter-backdrop .webkit-html-comment,.webkit-line-gutter-backdrop+table .webkit-html-comment{color:#93a1a1!important}body#-webkit-web-inspector .webkit-html-tag,.webkit-line-gutter-backdrop .webkit-html-tag,.webkit-line-gutter-backdrop+table .webkit-html-tag{color:#268bd2!important}body#-webkit-web-inspector .webkit-html-attribute-name,.webkit-line-gutter-backdrop .webkit-html-attribute-name,.webkit-line-gutter-backdrop+table .webkit-html-attribute-name{color:#2aa198!important}body#-webkit-web-inspector .webkit-html-attribute-value,.webkit-line-gutter-backdrop .webkit-html-attribute-value,.webkit-line-gutter-backdrop+table .webkit-html-attribute-value{color:#b58900!important}body#-webkit-web-inspector .webkit-html-css-node,.webkit-line-gutter-backdrop .webkit-html-css-node,.webkit-line-gutter-backdrop+table .webkit-html-css-node{color:#93a1a1!important}body#-webkit-web-inspector .webkit-html-js-node,.webkit-line-gutter-backdrop .webkit-html-js-node,.webkit-line-gutter-backdrop+table .webkit-html-js-node{color:#93a1a1!important}body#-webkit-web-inspector .webkit-html-external-link,.webkit-line-gutter-backdrop .webkit-html-external-link,.webkit-line-gutter-backdrop+table .webkit-html-external-link{color:#d33682!important}
+\ No newline at end of file
+diff --git i/chrome/install.sh w/chrome/install.sh
+deleted file mode 100755
+index 55793fe..0000000
+--- i/chrome/install.sh
++++ /dev/null
+@@ -1,7 +0,0 @@
+-#!/bin/sh
+-# Fix chrome web inspector fonts to be readable.
+-# http://blog.dotsmart.net/2011/09/30/change-font-size-in-chrome-devtools/
+-
+-# Use:
+-DIR="$( cd "$( dirname "$0" )" && pwd )"
+-ln -s -f $DIR/Custom.css $HOME/Library/Application\ Support/Google/Chrome/Default/User\ StyleSheets/Custom.css
+diff --git i/git/gitconfig w/git/gitconfig
+index 232efce..02f4f77 100644
+--- i/git/gitconfig
++++ w/git/gitconfig
+@@ -125,3 +125,13 @@
+   enabled = true
+ [include]
+   path = .gitconfig.user
++[user]
++	name = Akarsh
++	email = akarsh.satija@gmail.com
++[filter "lfs"]
++	smudge = git-lfs smudge -- %f
++	required = true
++	clean = git-lfs clean -- %f
++	process = git-lfs filter-process
++[url "git@source.golabs.io:"]
++	insteadOf = https://source.golabs.io
+diff --git i/ruby/gemrc w/ruby/gemrc
+index 7a046c1..0bf691b 100644
+--- i/ruby/gemrc
++++ w/ruby/gemrc
+@@ -1,8 +1,10 @@
+ ---
+-:update_sources: true
++:backtrace: false
++:bulk_threshold: 1000
+ :sources:
+ - http://rubygems.org
+-:benchmark: false
+-:backtrace: false
++- http://artifactory-gojek.golabs.io/artifactory/api/gems/gojek-gems/
++:update_sources: true
+ :verbose: true
+-gem: --no-document
++benchmark: false
++gem: "--no-document"
+diff --git i/vim/settings/lightline.vim w/vim/settings/lightline.vim
+index 892f509..cb637f4 100644
+--- i/vim/settings/lightline.vim
++++ w/vim/settings/lightline.vim
+@@ -1,5 +1,4 @@
+ let g:lightline = {
+-      \ 'colorscheme': 'solarized',
+       \ 'active': {
+       \   'left': [ [ 'mode', 'paste' ],
+       \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+diff --git i/vim/settings/yadr-appearance.vim w/vim/settings/yadr-appearance.vim
+index ccf0ab5..519bab4 100644
+--- i/vim/settings/yadr-appearance.vim
++++ w/vim/settings/yadr-appearance.vim
+@@ -27,5 +27,4 @@ else
+   end
+ endif
+ 
+-colorscheme solarized
+ set background=dark
+diff --git i/zsh/aliases.zsh w/zsh/aliases.zsh
+index 7f4d754..0ef6a11 100644
+--- i/zsh/aliases.zsh
++++ w/zsh/aliases.zsh
+@@ -12,26 +12,6 @@ elif [[ $unamestr == 'Darwin' ]]; then
+   platform='darwin'
+ fi
+ 
+-# YADR support
+-alias yav='yadr vim-add-plugin'
+-alias ydv='yadr vim-delete-plugin'
+-alias ylv='yadr vim-list-plugin'
+-alias yup='yadr update-plugins'
+-alias yip='yadr init-plugins'
+-
+-# PS
+-alias psa="ps aux"
+-alias psg="ps aux | grep "
+-alias psr='ps aux | grep ruby'
+-
+-# Moving around
+-alias cdb='cd -'
+-alias cls='clear;ls'
+-
+-# Show human friendly numbers and colors
+-alias df='df -h'
+-alias du='du -h -d 2'
+-
+ if [[ $platform == 'linux' ]]; then
+   alias ll='ls -alh --color=auto'
+   alias ls='ls --color=auto'
+@@ -40,9 +20,6 @@ elif [[ $platform == 'darwin' ]]; then
+   alias ls='ls -Gh'
+ fi
+ 
+-# show me files matching "ls grep"
+-alias lsg='ll | grep'
+-
+ # Alias Editing
+ TRAPHUP() {
+   source $yadr/zsh/aliases.zsh
+@@ -62,152 +39,8 @@ fi
+ # mimic vim functions
+ alias :q='exit'
+ 
+-# vimrc editing
+-alias ve='vim ~/.vimrc'
+-
+-# zsh profile editing
+-alias ze='vim ~/.zshrc'
+-
+-# Git Aliases
+-alias gs='git status'
+-alias gstsh='git stash'
+-alias gst='git stash'
+-alias gsp='git stash pop'
+-alias gsa='git stash apply'
+-alias gsh='git show'
+-alias gshw='git show'
+-alias gshow='git show'
+-alias gi='vim .gitignore'
+-alias gcm='git ci -m'
+-alias gcim='git ci -m'
+-alias gci='git ci'
+-alias gco='git co'
+-alias gcp='git cp'
+-alias ga='git add -A'
+-alias gap='git add -p'
+-alias guns='git unstage'
+-alias gunc='git uncommit'
+-alias gm='git merge'
+-alias gms='git merge --squash'
+-alias gam='git amend --reset-author'
+-alias grv='git remote -v'
+-alias grr='git remote rm'
+-alias grad='git remote add'
+-alias gr='git rebase'
+-alias gra='git rebase --abort'
+-alias ggrc='git rebase --continue'
+-alias gbi='git rebase --interactive'
+-alias gl='git l'
+-alias glg='git l'
+-alias glog='git l'
+-alias co='git co'
+-alias gf='git fetch'
+-alias gfp='git fetch --prune'
+-alias gfa='git fetch --all'
+-alias gfap='git fetch --all --prune'
+-alias gfch='git fetch'
+-alias gd='git diff'
+-alias gb='git b'
+-# Staged and cached are the same thing
+-alias gdc='git diff --cached -w'
+-alias gds='git diff --staged -w'
+-alias gpub='grb publish'
+-alias gtr='grb track'
+-alias gpl='git pull'
+-alias gplr='git pull --rebase'
+-alias gps='git push'
+-alias gpsh='git push -u origin `git rev-parse --abbrev-ref HEAD`'
+-alias gnb='git nb' # new branch aka checkout -b
+-alias grs='git reset'
+-alias grsh='git reset --hard'
+-alias gcln='git clean'
+-alias gclndf='git clean -df'
+-alias gclndfx='git clean -dfx'
+-alias gsm='git submodule'
+-alias gsmi='git submodule init'
+-alias gsmu='git submodule update'
+-alias gt='git t'
+-alias gbg='git bisect good'
+-alias gbb='git bisect bad'
+-alias gdmb='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
+-
+-# Common shell functions
+-alias less='less -r'
+-alias tf='tail -f'
+-alias l='less'
+-alias lh='ls -alt | head' # see the last modified files
+-alias screen='TERM=screen screen'
+-alias cl='clear'
+-
+ # Zippin
+ alias gz='tar -zcvf'
+ 
+-# Ruby
+-alias c='rails c' # Rails 3
+-alias co='script/console' # Rails 2
+-alias cod='script/console --debugger'
+-
+-#If you want your thin to listen on a port for local VM development
+-#export VM_IP=10.0.0.1 <-- your vm ip
+-alias ts='thin start -a ${VM_IP:-127.0.0.1}'
+-alias ms='mongrel_rails start'
+-alias tfdl='tail -f log/development.log'
+-alias tftl='tail -f log/test.log'
+-
+-alias ka9='killall -9'
+-alias k9='kill -9'
+-
+-# Gem install
+-alias sgi='sudo gem install --no-ri --no-rdoc'
+-
+-# TODOS
+-# This uses NValt (NotationalVelocity alt fork) - http://brettterpstra.com/project/nvalt/
+-# to find the note called 'todo'
+-alias todo='open nvalt://find/todo'
+-
+ # Forward port 80 to 3000
+-alias portforward='sudo ipfw add 1000 forward 127.0.0.1,3000 ip from any to any 80 in'
+-
+-alias rdm='rake db:migrate'
+-alias rdmr='rake db:migrate:redo'
+-
+-# Zeus
+-alias zs='zeus server'
+-alias zc='zeus console'
+-alias zr='zeus rspec'
+-alias zrc='zeus rails c'
+-alias zrs='zeus rails s'
+-alias zrdbm='zeus rake db:migrate'
+-alias zrdbtp='zeus rake db:test:prepare'
+-alias zzz='rm .zeus.sock; pkill zeus; zeus start'
+-
+-# Rspec
+-alias rs='rspec spec'
+-alias sr='spring rspec'
+-alias src='spring rails c'
+-alias srgm='spring rails g migration'
+-alias srdm='spring rake db:migrate'
+-alias srdt='spring rake db:migrate'
+-alias srdmt='spring rake db:migrate db:test:prepare'
+-
+-
+-# Sprintly - https://github.com/nextbigsoundinc/Sprintly-GitHub
+-alias sp='sprintly'
+-# spb = sprintly branch - create a branch automatically based on the bug you're working on
+-alias spb="git checkout -b \`sp | tail -2 | grep '#' | sed 's/^ //' | sed 's/[^A-Za-z0-9 ]//g' | sed 's/ /-/g' | cut -d"-" -f1,2,3,4,5\`"
+-
+-alias hpr='hub pull-request'
+-alias grb='git recent-branches'
+-
+-# Finder
+-alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+-alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+-
+-alias dbtp='spring rake db:test:prepare'
+-alias dbm='spring rake db:migrate'
+-alias dbmr='spring rake db:migrate:redo'
+-alias dbmd='spring rake db:migrate:down'
+-alias dbmu='spring rake db:migrate:up'
+-
+-# Homebrew
+-alias brewu='brew update && brew upgrade && brew cleanup && brew doctor'
++alias portforward='sudo ipfw add 1000 forward 127.0.0.1,3000 ip from any to any 80 in'
+\ No newline at end of file
+diff --git i/zsh/prezto w/zsh/prezto
+index 4f19700..ed6303c 160000
+--- i/zsh/prezto
++++ w/zsh/prezto
+@@ -1 +1 @@
+-Subproject commit 4f19700919c8ebbaf75755fc0d03716d13183f49
++Subproject commit ed6303c34048fbe0b40de23a648e397e50efeb62
+diff --git i/zsh/theme.zsh w/zsh/theme.zsh
+index 50e7eee..39145e8 100644
+--- i/zsh/theme.zsh
++++ w/zsh/theme.zsh
+@@ -1 +1 @@
+-prompt skwp
++prompt steeef
+\ No newline at end of file
+diff --git i/zsh/zsh-aliases.zsh w/zsh/zsh-aliases.zsh
+index 5fcd1cf..dab9e6e 100644
+--- i/zsh/zsh-aliases.zsh
++++ w/zsh/zsh-aliases.zsh
+@@ -2,12 +2,6 @@
+ alias -g ...='../..'
+ alias -g ....='../../..'
+ alias -g .....='../../../..'
+-alias -g C='| wc -l'
+-alias -g H='| head'
+-alias -g L="| less"
+-alias -g N="| /dev/null"
+-alias -g S='| sort'
+-alias -g G='| grep' # now you can do: ls foo G something
+ 
+ # Functions
+ #

@@ -1,5 +1,6 @@
 #### ssh alias
-alias sshme="ssh -i ~/.ssh/id_rsa -l akarsh.s "
+alias sshme="ssh -o StrictHostKeyChecking=no -l akarsh.s "
+alias sshgojek="ssh -l gojek "
 
 getIP(){
     CACHE_FILE=~/.akarsh/.host-cache

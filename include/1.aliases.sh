@@ -12,6 +12,9 @@ alias t-cache="mv ${PWD}/.terraform/plugins/darwin_amd64/terraform-provider-* ~/
 
 alias vpnfix="osascript $HOME/.akarsh/lib/fix_catalina_vpn.applescript"
 
+alias totp='oathtool --totp --base32 "$(security find-generic-password -a lazy-connect -w 2>/dev/null | tr -d '\n')"'
+
 ##### Override zsh alias
 alias gst='echo \"********************************************************************* Dude!!! Stop Using gst ***************************************************************\"'
-alias totp='oathtool --totp --base32 "$(security find-generic-password -a lazy-connect -w 2>/dev/null | tr -d '\n')"'
+alias gt='echo \"********************************************************************* Dude!!! Stop Using gt ***************************************************************\"'
+

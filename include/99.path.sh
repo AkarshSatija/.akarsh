@@ -19,7 +19,3 @@ export CPPFLAGS="-I/opt/homebrew/opt/openjdk@17/include"
 
 
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-
-# # gitcl - git clone alternative
-# export PATH="$HOME/.akarsh:$PATH"
-

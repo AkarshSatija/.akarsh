@@ -1,0 +1,164 @@
+#!/usr/bin/env zsh
+# chrome-dedup-tabs: Close duplicate Chrome tabs, keeping the first occurrence of each URL.
+
+set -uo pipefail
+
+usage() {
+  cat <<EOF
+Usage: chrome-dedup-tabs [-w <window-id>] [-v] [-h]
+
+Scans Chrome tabs for duplicates and lets you interactively select which
+to close, keeping the first occurrence of each URL.
+
+Options:
+  -w, --window <id>   Target a specific window/profile by ID (skip picker)
+  -v, --verbose       Print debug information during execution
+  -h, --help          Show this help message and exit
+
+Note: Each Chrome profile opens in its own window. Use the window picker
+      to scope deduplication to a single profile.
+
+Interactive controls (fzf):
+  TAB           Toggle selection on a tab
+  CTRL-A        Select all duplicates
+  CTRL-D        Deselect all
+  ENTER         Close selected tabs
+  ESC           Abort without closing anything
+
+Dependencies:
+  chrome-cli    brew install chrome-cli
+  fzf           brew install fzf
+EOF
+}
+
+window_id=""
+verbose=0
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -h|--help) usage; exit 0 ;;
+    -w|--window) window_id="$2"; shift 2 ;;
+    -v|--verbose) verbose=1; shift ;;
+    *) echo "Unknown option: $1" >&2; usage; exit 1 ;;
+  esac
+done
+
+debug() { [[ $verbose -eq 1 ]] && echo "[debug] $*" >&2 || true; }
+
+if ! command -v chrome-cli &>/dev/null; then
+  echo "Error: chrome-cli is not installed. Install it with: brew install chrome-cli" >&2
+  exit 1
+fi
+
+if ! command -v fzf &>/dev/null; then
+  echo "Error: fzf is not installed. Install it with: brew install fzf" >&2
+  exit 1
+fi
+
+# Window/profile picker if no -w given
+if [[ -z "$window_id" ]]; then
+  windows=$(chrome-cli list windows)
+  window_count=$(echo "$windows" | wc -l | tr -d ' ')
+
+  if [[ $window_count -gt 1 ]]; then
+    echo "Select a window/profile to scan (or press ESC to scan all windows):"
+    echo ""
+    chosen=$(echo "$windows" | fzf \
+      --prompt="Window > " \
+      --header="ENTER to select, ESC to scan all windows" \
+      --with-nth=2.. \
+      --delimiter=' ' || true)
+
+    if [[ -n "$chosen" ]]; then
+      window_id=$(echo "$chosen" | grep -oE '^\[[^]]+\]' | tr -d '[]')
+      echo "Targeting window: $chosen"
+    else
+      echo "No window selected — scanning all windows."
+    fi
+    echo ""
+  fi
+fi
+
+echo "Fetching tabs..."
+tabs=""
+if [[ -n "$window_id" ]]; then
+  debug "fetching tabs for window $window_id"
+  tabs=$(chrome-cli list links -w "$window_id" 2>/dev/null) || true
+else
+  while IFS= read -r win_line; do
+    win_id=$(echo "$win_line" | grep -oE '^\[[^]]+\]' | tr -d '[]')
+    [[ -z "$win_id" ]] && continue
+    debug "fetching tabs for window $win_id"
+    win_tabs=$(chrome-cli list links -w "$win_id" 2>/dev/null) || continue
+    debug "  got $(echo "$win_tabs" | wc -l | tr -d ' ') tabs"
+    tabs+="${win_tabs}"$'\n'
+  done <<< "$(chrome-cli list windows)"
+fi
+total=$(echo "$tabs" | grep -c '^\[' || true)
+debug "total tabs fetched: $total"
+echo "Scanning $total tabs for duplicates..."
+
+scanned=0
+declare -A seen
+duplicate_ids=()
+duplicate_urls=()
+
+while IFS= read -r line; do
+  id=$(echo "$line" | grep -oE '^\[[^]]+\]' | tr -d '[]')
+  url=$(echo "$line" | sed 's/^\[[^]]*\] //')
+
+  [[ -z "$id" || -z "$url" ]] && continue
+
+  ((scanned++)) || true
+  printf "\r  [%d/%d] checked, %d duplicate(s) found..." "$scanned" "$total" "${#duplicate_ids[@]}"
+
+  if [[ -n "${seen[$url]+_}" ]]; then
+    duplicate_ids+=("$id")
+    duplicate_urls+=("$url")
+  else
+    seen[$url]=1
+  fi
+done <<< "$tabs"
+
+echo ""
+
+count=${#duplicate_ids[@]}
+if [[ $count -eq 0 ]]; then
+  echo "No duplicates found."
+  exit 0
+fi
+
+echo ""
+echo "Found $count duplicate(s). Use TAB to select/deselect, ENTER to confirm:"
+echo ""
+
+fzf_lines=$(for i in {1..$count}; do
+  printf '%s\t%s\n' "${duplicate_ids[$i]}" "${duplicate_urls[$i]}"
+done)
+debug "fzf input: $(echo "$fzf_lines" | wc -l | tr -d ' ') lines"
+
+selected=$(echo "$fzf_lines" | fzf --multi \
+  --with-nth=2 \
+  --delimiter=$'\t' \
+  --prompt="Select tabs to close > " \
+  --header="TAB to toggle, ENTER to confirm, ESC to abort" \
+  --bind='load:select-all,ctrl-a:select-all,ctrl-d:deselect-all' || true)
+debug "fzf returned $(echo "$selected" | grep -c . || true) selected lines"
+
+if [[ -z "$selected" ]]; then
+  echo "Nothing selected. Aborted."
+  exit 0
+fi
+
+closed=0
+while IFS= read -r row; do
+  id=$(echo "$row" | cut -f1)
+  url=$(echo "$row" | cut -f2)
+  echo "Closing: $url"
+  debug "  tab id: $id"
+  chrome-cli close -t "$id"
+  ((closed++)) || true
+done <<< "$selected"
+
+echo ""
+echo "Done. Closed $closed duplicate(s)."

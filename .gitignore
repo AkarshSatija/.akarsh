@@ -1,3 +1,4 @@
-bin/
 .host-cache
 synced/
+.DS_Store
+inventory/

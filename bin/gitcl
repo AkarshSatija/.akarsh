@@ -1,0 +1,156 @@
+#!/usr/bin/env bash
+
+# gitcl - git clone alternative that organizes repos by URL path
+# Usage: gitcl <git-url> [base-path]
+# Configuration priority: argument > env var > config file
+
+set -euo pipefail
+
+# Color output (only if terminal supports colors)
+if [[ -t 1 ]]; then
+    RED=$'\033[0;31m'
+    GREEN=$'\033[0;32m'
+    BLUE=$'\033[0;34m'
+    NC=$'\033[0m'
+else
+    RED=''
+    GREEN=''
+    BLUE=''
+    NC=''
+fi
+
+# Show usage
+usage() {
+    cat << EOF
+${BLUE}gitcl${NC} - Clone git repos organized by URL path
+
+${BLUE}Usage:${NC}
+  gitcl <git-url> [base-path]
+
+${BLUE}Arguments:${NC}
+  git-url       Git repository URL (required)
+  base-path     Base directory for cloning (optional)
+
+${BLUE}Configuration (priority order):${NC}
+  1. Command argument: gitcl <url> /path/to/base
+  2. Environment variable: export GITCL_BASE_PATH=/path/to/base
+  3. Config file: ~/.gitclrc with GITCL_BASE_PATH=/path/to/base
+
+${BLUE}Examples:${NC}
+  gitcl https://github.com/user/repo
+  gitcl git@github.com:user/repo.git ~/code
+  GITCL_BASE_PATH=~/code gitcl https://github.com/user/repo
+
+${BLUE}Result:${NC}
+  URL: https://github.com/user/repo
+  Base: ~/code
+  Final: ~/code/github.com/user/repo/
+EOF
+}
+
+# Parse config file
+load_config() {
+    local config_file="${HOME}/.gitclrc"
+    if [[ -f "$config_file" ]]; then
+        source "$config_file"
+    fi
+}
+
+# Parse git URL to extract domain/path
+parse_git_url() {
+    local url="$1"
+    local parsed
+
+    # Handle different URL formats
+    if [[ "$url" =~ ^git@([^:]+):(.+)$ ]]; then
+        # git@github.com:user/repo.git
+        local host="${BASH_REMATCH[1]}"
+        local path="${BASH_REMATCH[2]}"
+        parsed="${host}/${path}"
+    elif [[ "$url" =~ ^(https?|git)://([^/]+)/(.+)$ ]]; then
+        # https://github.com/user/repo or git://github.com/user/repo
+        local host="${BASH_REMATCH[2]}"
+        local path="${BASH_REMATCH[3]}"
+        parsed="${host}/${path}"
+    else
+        echo "${RED}Error: Invalid git URL format${NC}" >&2
+        return 1
+    fi
+
+    # Remove trailing slashes and .git suffix
+    parsed="${parsed%/}"
+    parsed="${parsed%.git}"
+
+    echo "$parsed"
+}
+
+# Main function
+main() {
+    local git_url=""
+    local base_path=""
+
+    # Check arguments
+    if [[ $# -lt 1 ]]; then
+        usage
+        exit 1
+    fi
+
+    git_url="$1"
+
+    # Determine base path (priority: argument > env var > config > error)
+    if [[ $# -ge 2 ]]; then
+        # Argument provided
+        base_path="$2"
+    else
+        # Load config file
+        load_config
+
+        if [[ -n "${GITCL_BASE_PATH:-}" ]]; then
+            base_path="$GITCL_BASE_PATH"
+        fi
+    fi
+
+    if [[ -z "$base_path" ]]; then
+        echo "${RED}Error: No base path specified${NC}" >&2
+        echo "Set GITCL_BASE_PATH environment variable or pass as argument" >&2
+        usage
+        exit 1
+    fi
+
+    # Expand ~ to home directory
+    base_path="${base_path/#\~/$HOME}"
+
+    # Parse URL
+    local relative_path
+    if ! relative_path=$(parse_git_url "$git_url"); then
+        exit 1
+    fi
+
+    # Full target path
+    local target_dir="${base_path}/${relative_path}"
+
+    # Create parent directories
+    mkdir -p "$target_dir"
+
+    echo "${BLUE}Cloning:${NC}"
+    echo "  URL:     $git_url"
+    echo "  Target:  $target_dir"
+    echo ""
+
+    # Clone the repository
+    if git clone "$git_url" "$target_dir"; then
+        echo "${GREEN}✓ Successfully cloned to: $target_dir${NC}"
+        echo "  To navigate: cd '$target_dir'"
+    else
+        echo "${RED}✗ Clone failed${NC}" >&2
+        exit 1
+    fi
+}
+
+# Handle help flag
+if [[ "${1:-}" == "-h" ]] || [[ "${1:-}" == "--help" ]]; then
+    usage
+    exit 0
+fi
+
+main "$@"

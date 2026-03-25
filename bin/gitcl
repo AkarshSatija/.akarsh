@@ -129,6 +129,13 @@ main() {
     # Full target path
     local target_dir="${base_path}/${relative_path}"
 
+    # If directory already exists, just cd into it
+    if [[ -d "$target_dir" ]]; then
+        echo "${GREEN}✓ Already exists: $target_dir${NC}"
+        echo "$target_dir"
+        exit 0
+    fi
+
     # Create parent directories
     mkdir -p "$target_dir"
 
@@ -140,7 +147,8 @@ main() {
     # Clone the repository
     if git clone "$git_url" "$target_dir"; then
         echo "${GREEN}✓ Successfully cloned to: $target_dir${NC}"
-        echo "  To navigate: cd '$target_dir'"
+        # Output the directory path to stdout (for function wrapper to read)
+        echo "$target_dir"
     else
         echo "${RED}✗ Clone failed${NC}" >&2
         exit 1
